@@ -126,6 +126,7 @@ Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de 
   - molino: bayas o caza cerca;
   - aserradero: el árbol más cercano;
   - campamento minero: la mina o cantera con menos aldeanos.
+- **Cambio de recurso:** si un aldeano lleva madera y lo mandas al oro, va directo a la mina y suelta la madera al empezar (como en *Age of Empires*). Antes caminaba primero a descargar al almacén y parecía ignorar la orden.
 - **Prueba:** `test/movement.test.ts` hace trabajar a 20 aldeanos durante 3 minutos y verifica que ninguno pase más de 2 s sin avanzar ni trabajar. Con el código anterior, alguno quedaba trabado 55 s.
 
 ## Murallas y puertas
@@ -285,6 +286,13 @@ Para que los recursos no se estanquen en la partida larga:
 | Centro urbano / aldeano inactivo / centrar | H / . / Espacio |
 | Grupos | Ctrl + 1..9 guarda · 1..9 recupera |
 
+## Tutorial y fin de partida
+
+- **Tutorial** (`src/ui/tutorial.ts`): seis pasos en la primera partida contra la IA. Cada paso revisa el estado de la simulación (selección, órdenes de recolectar, casas, cola del centro urbano, ejército) y avanza solo; el botón que toca usar parpadea. Se guarda en el navegador (`age.tut`) y se puede repetir con `?tutorial`. No aparece en 1 vs 1 ni en los modos de captura.
+- **Fin de partida:** el evento `win` trae el motivo (`town`, `resign` o `wonder`) y la posición del centro urbano caído o de la Maravilla. La cámara viaja ahí 2 s mientras la partida sigue (se ve el derrumbe); el replay, los recursos y las estadísticas se toman en el momento exacto del final, así que el cobro no cambia. En 1 vs 1 el lockstep se detiene de inmediato.
+- **Reportes:** el botón de insecto manda el texto del jugador, la partida en curso, los últimos errores y el equipo a `POST /api/report` (6 por hora por IP; se guardan en `server/data/reports`, fuera de git). `GET /api/report/<id>` solo responde desde la propia máquina, nunca por el túnel.
+- **Clasificación:** `GET /api/leaderboard` suma los eventos `RewardClaimed` de los registros actual y anteriores (`registryOld` en `deployment.json`) y separa IA de 1 vs 1 con `MatchReported`. Se recalcula como mucho una vez por minuto.
+
 ## Modos de desarrollo
 
-`?autoplay`, `?demo` (aldeanos trabajando), `?demo=tc` (punto de reunión y cola llena de 10), `?demo=crowd&t=40` (20 aldeanos en madera y oro, adelantado 40 s), `?demo=readme&era=3&zoom=19` (la base de las capturas del README), `?demo=naval&map=costa` (muelle y flota), `?demo=v`, `?demo=fx&zoom=9&cx=&cy=` (edificios dañados, combate y cambio de era al segundo y medio), `?showcase=N` (todos los modelos en la era N, con `&focus=town|houses|team1|castle|units|eco|mil|compare|fauna|farms|people|wonder|gates`).
+`?autoplay`, `?demo` (aldeanos trabajando), `?demo=tc` (punto de reunión y cola llena de 10), `?demo=crowd&t=40` (20 aldeanos en madera y oro, adelantado 40 s), `?demo=readme&era=3&zoom=19` (la base de las capturas del README), `?demo=naval&map=costa` (muelle y flota), `?demo=v`, `?demo=fx&zoom=9&cx=&cy=` (edificios dañados, combate y cambio de era al segundo y medio), `?showcase=N` (todos los modelos en la era N, con `&focus=town|houses|team1|castle|units|eco|mil|compare|fauna|farms|people|wonder|gates`), `?tutorial` (repite el tutorial), `?reporte=<id>` (vuelve a jugar la partida de un reporte hasta 20 s antes de enviarlo), `?film=<toma>&rec&clean&fz=` (modo cine del comercial: un cuadro exacto por llamada a `window.__rec.frame()`).

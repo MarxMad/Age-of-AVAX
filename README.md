@@ -6,6 +6,7 @@ Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar
 
 <p align="center">
 <a href="https://age-of-avax.vercel.app"><b>▶ Jugar</b></a> ·
+<a href="docs/video/Age-of-Avax-comercial.mp4">Comercial (60 s)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_ES.pdf">Whitepaper (ES)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_EN.pdf">Whitepaper (EN)</a> ·
 <a href="docs/ECONOMIA.md">Economía</a> ·
@@ -13,6 +14,9 @@ Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar
 </p>
 
 ---
+
+<p align="center"><a href="docs/video/Age-of-Avax-comercial.mp4"><img src="docs/img/comercial.jpg" width="80%" alt="Ver el comercial de Age of Avax"></a><br>
+<sub>Comercial de 60 s: <a href="docs/video/Age-of-Avax-comercial.mp4">horizontal</a> · <a href="docs/video/Age-of-Avax-comercial-vertical.mp4">vertical 9:16</a> (estados, Instagram, TikTok). Tomas reales del juego, música generada por código.</sub></p>
 
 ## Qué es
 
@@ -49,6 +53,21 @@ Un RTS en 3D con la dinámica clásica de *Age of Empires*: recolectar, construi
 - **Seguimiento en vivo:** cada transacción muestra en una esquina sus pasos: *Firmando → Enviada → Confirmada en el bloque #N*, con el tiempo que tardó y un enlace a la evidencia en la cadena. Con la wallet de email (Privy) no aparecen ventanas extra: todo se ve en el juego.
 
 <p align="center"><img src="docs/img/confirmacion.jpg" width="75%"><br><sub>Confirmación de compra y seguimiento: permiso de gasto exacto y compra, cada una confirmada en su bloque.</sub></p>
+
+### Primera partida, fin de partida y comunidad
+
+- **Tutorial:** la primera vez que juegas, seis pasos guiados que avanzan solos cuando haces lo que piden: seleccionar aldeanos, recolectar, construir un Refugio Alpino, entrenar aldeanos, preparar el ejército y atacar. El botón que toca usar parpadea en rojo. Se puede saltar y volver a ver con `?tutorial`.
+
+<p align="center"><img src="docs/img/tutorial.jpg" width="80%"><br><sub>Paso 1 del tutorial, arriba a la derecha.</sub></p>
+
+- **Victoria y derrota:** al caer un centro urbano, la cámara viaja hasta él para ver el derrumbe y aparece la pantalla final: escudo dorado con laureles, confeti y fanfarria si ganas; escudo roto, ceniza y el mundo en gris si pierdes. Dice cómo terminó (centro urbano destruido, rendición o Maravilla) y muestra duración, era, aldeanos, ejército y edificios. Desde ahí se cobra el GLORY y se venden los recursos.
+
+<p align="center"><img src="docs/img/victoria.jpg" width="49%"> <img src="docs/img/derrota.jpg" width="49%"><br><sub>Pantallas de victoria y derrota.</sub></p>
+
+- **Clasificación** (icono de trofeo): los mejores jugadores por GLORY cobrado y victorias, contra la IA y en 1 vs 1. Se calcula con los eventos `RewardClaimed` del MatchRegistry, así que cualquiera puede verificarla en la cadena.
+- **Reportar un problema** (icono de insecto): el jugador cuenta qué pasó y se adjunta la partida en curso (mapa, semilla y sus órdenes), los últimos errores de la página y su pantalla y navegador. Como la simulación es determinista, con eso se reproduce exacto: `npx tsx scripts/reportes.ts` los lista y `?reporte=<id>` (en desarrollo) vuelve a jugar esa partida hasta 20 s antes del reporte.
+
+<p align="center"><img src="docs/img/reporte.jpg" width="55%"><br><sub>Reportar un problema, con la partida adjunta.</sub></p>
 
 ## Eras
 
