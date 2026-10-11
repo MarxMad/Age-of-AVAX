@@ -64,6 +64,7 @@ Un RTS en 3D con la dinámica clásica de *Age of Empires*: recolectar, construi
 
 <p align="center"><img src="docs/img/victoria.jpg" width="49%"> <img src="docs/img/derrota.jpg" width="49%"><br><sub>Pantallas de victoria y derrota.</sub></p>
 
+- **Marcador en vivo** (como en AoE2, sobre el minimapa): tu color y número, tu nombre, el puntaje y la era de cada jugador, ordenados por puntaje. El puntaje suma economía (recursos juntados), militar (valor de lo que destruiste al rival), lo que tienes en pie y la tecnología (eras y mejoras). `F4` lo oculta. Al final de la partida aparece el puntaje de ambos.
 - **Clasificación** (icono de trofeo): los mejores jugadores por GLORY cobrado y victorias, contra la IA y en 1 vs 1. Se calcula con los eventos `RewardClaimed` del MatchRegistry, así que cualquiera puede verificarla en la cadena.
 - **Reportar un problema** (icono de insecto): el jugador cuenta qué pasó y se adjunta la partida en curso (mapa, semilla y sus órdenes), los últimos errores de la página y su pantalla y navegador. Como la simulación es determinista, con eso se reproduce exacto: `npx tsx scripts/reportes.ts` los lista y `?reporte=<id>` (en desarrollo) vuelve a jugar esa partida hasta 20 s antes del reporte.
 

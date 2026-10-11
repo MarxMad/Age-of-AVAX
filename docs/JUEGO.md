@@ -285,12 +285,14 @@ Para que los recursos no se estanquen en la partida larga:
 | Panel de comandos | Q W E R T / A S D F G / Z X C V B |
 | Centro urbano / aldeano inactivo / centrar | H / . / Espacio |
 | Grupos | Ctrl + 1..9 guarda · 1..9 recupera |
+| Marcador en vivo | F4 muestra u oculta |
 
 ## Tutorial y fin de partida
 
 - **Tutorial** (`src/ui/tutorial.ts`): seis pasos en la primera partida contra la IA. Cada paso revisa el estado de la simulación (selección, órdenes de recolectar, casas, cola del centro urbano, ejército) y avanza solo; el botón que toca usar parpadea. Se guarda en el navegador (`age.tut`) y se puede repetir con `?tutorial`. No aparece en 1 vs 1 ni en los modos de captura.
 - **Fin de partida:** el evento `win` trae el motivo (`town`, `resign` o `wonder`) y la posición del centro urbano caído o de la Maravilla. La cámara viaja ahí 2 s mientras la partida sigue (se ve el derrumbe); el replay, los recursos y las estadísticas se toman en el momento exacto del final, así que el cobro no cambia. En 1 vs 1 el lockstep se detiene de inmediato.
 - **Reportes:** el botón de insecto manda el texto del jugador, la partida en curso, los últimos errores y el equipo a `POST /api/report` (6 por hora por IP; se guardan en `server/data/reports`, fuera de git). `GET /api/report/<id>` solo responde desde la propia máquina, nunca por el túnel.
+- **Marcador en vivo** (`src/ui/score.ts`): `sim.score(owner)` = recursos juntados / 10 + valor de lo destruido al rival / 5 + unidades y edificios en pie / 10 + eras y mejoras / 10. Los contadores `gathered` y `destroyed` no entran en el hash, así que no cambian los replays ni la verificación. A la IA se le cuenta también su ingreso pasivo. `F4` lo oculta (se recuerda en el navegador).
 - **Clasificación:** `GET /api/leaderboard` suma los eventos `RewardClaimed` de los registros actual y anteriores (`registryOld` en `deployment.json`) y separa IA de 1 vs 1 con `MatchReported`. Se recalcula como mucho una vez por minuto.
 
 ## Modos de desarrollo
