@@ -110,6 +110,7 @@ Las capturas del README salen del modo `?photo=<edificio|unidad>&era=N`.
 
 - **Tamaño:** el modelo llena exactamente su terreno de 3×3 casillas (120 px), igual que la vista previa de construcción.
 - **Granjas pegadas:** se construyen una junto a otra, como las casas, y forman una parcela continua. Shift + clic coloca varias seguidas.
+- **Un aldeano por granja:** el primero que empieza a trabajarla se queda con ella (aunque vaya a descargar al molino). Si mandas a varios a la misma granja, los demás buscan la granja libre más cercana; si no hay ninguna, quedan inactivos y el panel de eventos avisa.
 - **Trigo:** va por surcos (una malla por surco) y se vacía surco a surco al cosecharse. Cuesta 10 llamadas de dibujo por granja, no una por espiga.
 
 Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de madera** (como la cola de resiembra del molino en AoE). El aldeano sigue trabajándola y el panel de eventos avisa "Granja resembrada". Si no hay madera suficiente, la granja desaparece y el aviso dice cuánta falta.
