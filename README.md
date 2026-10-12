@@ -75,7 +75,7 @@ Un RTS en 3D con la dinámica clásica de *Age of Empires*: recolectar, construi
 
 Como en AoE, **cada era cambia el aspecto de los edificios** y desbloquea unidades, edificios y mejoras. El avance se investiga en la Red Primaria.
 
-<table><tr><td align="center"><img src="docs/img/town-e1.jpg" width="150"><br><sub><b>I</b> · Antigua</sub></td><td align="center"><img src="docs/img/town-e2.jpg" width="150"><br><sub><b>II</b> · Clásica</sub></td><td align="center"><img src="docs/img/town-e3.jpg" width="150"><br><sub><b>III</b> · Medieval</sub></td><td align="center"><img src="docs/img/town-e4.jpg" width="150"><br><sub><b>IV</b> · Pólvora</sub></td><td align="center"><img src="docs/img/town-e5.jpg" width="150"><br><sub><b>V</b> · Industrial</sub></td><td align="center"><img src="docs/img/town-e6.jpg" width="150"><br><sub><b>VI</b> · Moderna</sub></td></tr></table>
+<table><tr><td align="center"><img src="docs/img/town-e1.jpg" width="150"><br><sub><b>I</b> · Antigua</sub></td><td align="center"><img src="docs/img/town-e2.jpg" width="150"><br><sub><b>II</b> · Clásica</sub></td><td align="center"><img src="docs/img/town-e3.jpg" width="150"><br><sub><b>III</b> · Medieval</sub></td><td align="center"><img src="docs/img/town-e4.jpg" width="150"><br><sub><b>IV</b> · Pólvora</sub></td><td align="center"><img src="docs/img/town-e5.jpg" width="150"><br><sub><b>V</b> · Industrial</sub></td><td align="center"><img src="docs/img/town-e6.jpg" width="150"><br><sub><b>VI</b> · Moderna</sub></td><td align="center"><img src="docs/img/town-e7.jpg" width="150"><br><sub><b>VII</b> · Futurista</sub></td></tr></table>
 
 | Era | Avance (costo) | Nuevos edificios | Nuevas unidades | Nuevas mejoras |
 |---|---|---|---|---|
@@ -85,6 +85,7 @@ Como en AoE, **cada era cambia el aspecto de los edificios** y desbloquea unidad
 | **IV · de la Pólvora** | 900 🍖 · 600 🪙 · 200 🪨 | Academia Team1, Templo del Consenso (maravilla) | Mosquetero C-Chain, Cañón Subnet | Balística, Minería profunda, Altos hornos |
 | **V · Industrial** | 1200 🍖 · 900 🪙 · 400 🪨 | Fábrica Avalanche9000 | Fusilero Warp | Química, Rotación de cultivos, Blindaje, Cadena de montaje |
 | **VI · Moderna** | 1500 🍖 · 1200 🪙 · 600 🪨 | — | Tanque Avalanche9000 | Logística, Guiado de precisión |
+| **VII · Futurista** | 2000 🍖 · 1600 🪙 · 800 🪨 | — (todos se vuelven futuristas) | Mecha Validador, Halcón Interchain, Tanque de Plasma Etna | — |
 
 Como en AoE, cada era cambia el aspecto de los edificios. Los techos y los muros cambian de material y aparece un elemento icónico de la época. Desde la era III, el color del equipo pasa de los techos a un borde alrededor del edificio y a un estandarte. Al subir de era, el juego anuncia lo que se desbloqueó.
 
@@ -98,6 +99,13 @@ Como en AoE, cada era cambia el aspecto de los edificios. Los techos y los muros
 | IV · Pólvora | ladrillo rojo | cobre verde | cúpula de cobre y faroles |
 | V · Industrial | ladrillo oscuro | zinc | chimenea industrial con humo |
 | VI · Moderna | concreto claro | blanco | paneles solares y antena con luz roja |
+| VII · Futurista | cerámica blanca y grafito sobre losas de pizarra | vidrio oscuro | aristas de neón, franja de luz al ras del suelo y un anillo holográfico que gira encima; la Red Primaria es un **holograma** |
+
+### VII · Edad Futurista
+
+La era más futurista posible: la **Red Primaria se vuelve un holograma** (la silueta de Avalanche hecha de luz, sobre una plataforma con anillos que giran y el triángulo rojo flotando encima). Todos los edificios se rehacen en cerámica blanca, grafito y vidrio oscuro, con aristas de neón y un anillo holográfico. Llegan los **robots de combate**, los **helicópteros de ataque**, que vuelan sobre agua, bosques y murallas, y los **tanques de plasma**, que levitan. Todos disparan **láser**: cian los tuyos y magenta los del rival.
+
+<p align="center"><img src="docs/img/era7-base.jpg" width="49%"> <img src="docs/img/era7-batalla.jpg" width="49%"><br><sub>Una base en la Edad Futurista y una batalla de robots, tanques de plasma y helicópteros.</sub></p>
 
 Al avanzar de era se levanta sobre la Red Primaria una **columna de luz roja con el triángulo de Avalanche**, con una onda expansiva y un estallido de partículas.
 
@@ -105,7 +113,7 @@ Al avanzar de era se levanta sobre la Red Primaria una **columna de luz roja con
 
 Las personas también cambian de equipo con cada era, y el triángulo de Avalanche aparece en escudos, tabardos y brazaletes.
 
-<p align="center"><img src="docs/img/personajes.jpg" width="80%"><br><sub>Aldeano y Centinela en las seis eras.</sub></p>
+<p align="center"><img src="docs/img/personajes.jpg" width="80%"><br><sub>Aldeano y Centinela en las seis primeras eras. En la Futurista todos llevan casco blanco con visor de luz cian y peto blanco.</sub></p>
 
 | Era | Aldeano | Centinela (milicia) | Otros |
 |---|---|---|---|
@@ -197,6 +205,9 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | <img src="docs/img/cannon-e4.jpg" width="190"> | **Cañón Subnet**<br><sub>Cañón</sub> | IV | 150 🪵 · 200 🪙 | 160 · 45 · 7.0 casillas | Artillería pesada. Triple daño contra edificios. |
 | <img src="docs/img/rifleman-e5.jpg" width="190"> | **Fusilero Warp**<br><sub>Fusilero</sub> | V | 70 🍖 · 70 🪙 | 120 · 22 · 5.0 casillas | Infantería moderna con rifle de cerrojo. |
 | <img src="docs/img/tank-e6.jpg" width="190"> | **Tanque Avalanche9000**<br><sub>Tanque</sub> | VI | 100 🪵 · 250 🪙 · 50 🪨 | 450 · 50 · 5.5 casillas | Blindado moderno. Resistente y devastador. |
+| <img src="docs/img/robot-e7.jpg" width="190"> | **Mecha Validador**<br><sub>Robot de combate</sub> | VII | 90 🍖 · 140 🪙 | 260 · 30 · 4.8 casillas | Mecha bípedo con cañón láser. Blindado y preciso. Se entrena en el Cuartel. |
+| <img src="docs/img/helicopter-e7.jpg" width="190"> | **Halcón Interchain**<br><sub>Helicóptero de ataque</sub> | VII | 120 🪵 · 260 🪙 | 230 · 26 · 5.3 casillas | **Vuela**: cruza agua, bosques y murallas en línea recta. Rápido y letal contra tropas. Se entrena en la Fábrica. |
+| <img src="docs/img/hovertank-e7.jpg" width="190"> | **Tanque de Plasma Etna**<br><sub>Tanque de plasma</sub> | VII | 120 🪵 · 320 🪙 · 80 🪨 | 620 · 70 · 6.3 casillas | Levita sobre propulsores de luz. Su cañón de plasma hace 2,5× de daño a edificios. Se entrena en la Fábrica. |
 | <img src="docs/img/fishingboat-e1.jpg" width="190"> | **Pesquero Coreth**<br><sub>Bote pesquero</sub> | I | 75 🪵 | 60 · — · — | Pesca en mares, lagos y ríos y lleva la comida al muelle (carga 15). |
 | <img src="docs/img/transport-e1.jpg" width="190"> | **Transbordador ICM**<br><sub>Barco de transporte</sub> | I | 125 🪵 | 160 · — · — | Lleva hasta 5 unidades por el agua, por ejemplo de una isla a otra. |
 | <img src="docs/img/merchant-e2.jpg" width="190"> | **Carguero Interchain**<br><sub>Barco mercante</sub> | II | 100 🪵 · 50 🪙 | 120 · — · — | Comercia entre dos muelles tuyos: cada viaje da oro según la distancia. |
