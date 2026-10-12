@@ -84,7 +84,7 @@ Como en AoE, cada avance de era cambia el aspecto de los edificios. Al subir de 
 | IV · Pólvora | ladrillo rojo | cobre verde | cúpula de cobre con linterna y faroles |
 | V · Industrial | ladrillo oscuro | zinc | chimenea industrial de ladrillo con humo |
 | VI · Moderna | concreto claro | blanco | paneles solares sobre el techo y antena con luz roja |
-| VII · Futurista | cerámica blanca, grafito y pizarra | vidrio oscuro | aristas de neón, franja de luz y anillo holográfico; la Red Primaria es un holograma (`makeHoloTown`) |
+| VII · Futurista | cerámica blanca, grafito y pizarra | vidrio oscuro | aristas de neón, franja de luz y anillo holográfico; la Red Primaria estilo Oblivion (`makeFutureTown`) |
 
 Desde la era III, el color del equipo deja los techos y pasa a un borde alrededor del edificio y a un estandarte, como en AoE. La comparación está en `docs/img/eras.jpg` (`?photo=stable&era=N&zoom=7.5`).
 
@@ -140,7 +140,7 @@ Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de 
 - **Avance:** 2000 comida, 1600 oro y 800 piedra en la Red Primaria, desde la Edad Moderna. La IA llega a los 24 minutos.
 - **Unidades:** robot de combate (Cuartel), helicóptero de ataque y tanque de plasma (Fábrica). Disparan láser (`ranged: 'laser'`): un haz instantáneo cian (tuyo) o magenta (rival) con destellos; el del tanque es más grueso y enciende el blanco.
 - **Aeronaves** (`air: true`): vuelan en línea recta sobre agua, bosques y murallas, sin pathfinding. Solo se separan entre ellas, no empujan a la infantería de abajo. Cualquiera las puede atacar.
-- **Aspecto** (`src/render/models.ts`): los edificios parten del modelo de la Edad Moderna y `futurize` los rehace (cerámica, grafito, pisos de pizarra, aristas de neón con `EdgesGeometry`, franja de luz y anillo holográfico). El centro urbano es `makeHoloTown`: la Red Primaria convertida en holograma translúcido con aristas brillantes, anillos que giran y el triángulo de Avalanche flotando. Las personas llevan casco con visor cian y peto blanco.
+- **Aspecto** (`src/render/models.ts`): los edificios parten del modelo de la Edad Moderna y `futurize` los rehace (cerámica, grafito, pisos de pizarra, aristas de neón con `EdgesGeometry`, franja de luz y anillo holográfico). El centro urbano es `makeFutureTown`: estructura blanca estilo *Oblivion*, más grande, con vidrio negro en las caras del logo, LED en todas sus aristas, postes de luz y torre con helipuerto. Las personas llevan casco con visor cian y peto blanco.
 
 ## Murallas y puertas
 

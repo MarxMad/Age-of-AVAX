@@ -92,7 +92,7 @@ Como en AoE, **cada era cambia el aspecto de los edificios** y desbloquea unidad
 
 Como en AoE, cada era cambia el aspecto de los edificios. Los techos y los muros cambian de material y aparece un elemento icónico de la época. Desde la era III, el color del equipo pasa de los techos a un borde alrededor del edificio y a un estandarte. Al subir de era, el juego anuncia lo que se desbloqueó.
 
-<img src="docs/img/eras.jpg" width="820" alt="El mismo establo en las siete eras y la Red Primaria holográfica">
+<img src="docs/img/eras.jpg" width="820" alt="El mismo establo en las siete eras y la Red Primaria futurista">
 
 | Era | Muros | Techos | Elemento icónico |
 |---|---|---|---|
@@ -102,11 +102,11 @@ Como en AoE, cada era cambia el aspecto de los edificios. Los techos y los muros
 | IV · Pólvora | ladrillo rojo | cobre verde | cúpula de cobre y faroles |
 | V · Industrial | ladrillo oscuro | zinc | chimenea industrial con humo |
 | VI · Moderna | concreto claro | blanco | paneles solares y antena con luz roja |
-| VII · Futurista | cerámica blanca y grafito sobre losas de pizarra | vidrio oscuro | aristas de neón, franja de luz al ras del suelo y un anillo holográfico que gira encima; la Red Primaria es un **holograma** |
+| VII · Futurista | cerámica blanca y grafito sobre losas de pizarra | vidrio oscuro | aristas de neón, franja de luz al ras del suelo y un anillo holográfico que gira encima; la Red Primaria es una estructura blanca estilo *Oblivion*, más grande que las demás, con vidrio negro y LED en las aristas del logo |
 
 ### VII · Edad Futurista
 
-La era más futurista posible: la **Red Primaria se vuelve un holograma** (la silueta de Avalanche hecha de luz, sobre una plataforma con anillos que giran y el triángulo rojo flotando encima). Todos los edificios se rehacen en cerámica blanca, grafito y vidrio oscuro, con aristas de neón y un anillo holográfico. Llegan los **robots de combate**, los **helicópteros de ataque**, que vuelan sobre agua, bosques y murallas, y los **tanques de plasma**, que levitan. Todos disparan **láser**: cian los tuyos y magenta los del rival.
+La era más futurista posible: la **Red Primaria** se vuelve una estructura blanca estilo *Oblivion*, más grande que las demás, con paneles de vidrio negro, luces LED en todas las aristas del logo, postes de luz y una torre esbelta con helipuerto. Todos los edificios se rehacen en cerámica blanca, grafito y vidrio oscuro, con aristas de neón y un anillo holográfico. Llegan los **robots de combate**, los **helicópteros de ataque**, que vuelan sobre agua, bosques y murallas, y los **tanques de plasma**, que levitan. Todos disparan **láser**: cian los tuyos y magenta los del rival.
 
 <p align="center"><img src="docs/img/era7-base.jpg" width="49%"> <img src="docs/img/era7-batalla.jpg" width="49%"><br><sub>Una base en la Edad Futurista y una batalla de robots, tanques de plasma y helicópteros.</sub></p>
 
@@ -171,7 +171,7 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Se reconoce por su techo de tablones y la pila de troncos. |
 | <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Se reconoce por el montículo de roca con túnel y la torre con polea. |
 | <img src="docs/img/farm-e1.jpg" width="210"> | **Granja de Staking**<br><sub>Granja</sub> | I | 60 🪵 | Fuente renovable de comida. Un aldeano la trabaja. Al agotarse se vuelve a sembrar sola por 60 🪵 (si no hay madera, desaparece). |
-| <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende recursos con tokens reales en la Age L1: cada recurso tiene su pool contra GLORY. |
+| <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende recursos con tokens reales en la Age L1: cada recurso tiene su pool contra GLORY. Entrena carretas comerciantes. |
 | <img src="docs/img/dock-e1.jpg" width="210"> | **Puerto Teleporter**<br><sub>Muelle</sub> | I | 150 🪵 | Se construye en la orilla, sobre el agua. Entrena los cuatro barcos y recibe el pescado. |
 | <img src="docs/img/barracks-e1.jpg" width="210"> | **Cuartel del Consenso**<br><sub>Cuartel</sub> | I | 100 🪵 · 40 🪨 | Entrena infantería: milicia, mosqueteros y fusileros. Se reconoce por su techo de pabellón, la torre de guardia y el patio de arena. |
 | <img src="docs/img/palisade-e1.jpg" width="210"> | **Empalizada de Hielo**<br><sub>Empalizada</sub> | I | 3 🪵 | Muro barato de troncos. Arrastra para trazar una línea. |
@@ -215,8 +215,15 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | <img src="docs/img/hovertank-e7.jpg" width="190"> | **Tanque de Plasma Etna**<br><sub>Tanque de plasma</sub> | VII | 120 🪵 · 320 🪙 · 80 🪨 | 620 · 70 · 6.3 casillas | Levita sobre propulsores de luz. Su cañón de plasma hace 2,5× de daño a edificios. Se entrena en la Fábrica. |
 | <img src="docs/img/fishingboat-e1.jpg" width="190"> | **Pesquero Coreth**<br><sub>Bote pesquero</sub> | I | 75 🪵 | 60 · — · — | Pesca en mares, lagos y ríos y lleva la comida al muelle (carga 15). |
 | <img src="docs/img/transport-e1.jpg" width="190"> | **Transbordador ICM**<br><sub>Barco de transporte</sub> | I | 125 🪵 | 160 · — · — | Lleva hasta 5 unidades por el agua, por ejemplo de una isla a otra. |
+| <img src="docs/img/tradecart-e2.jpg" width="190"> | **Caravana DeFi**<br><sub>Carreta comerciante</sub> | II | 100 🍖 · 50 🪙 | 70 · — · — | Se entrena en el Mercado. Va y vuelve entre tu Mercado y el Gran Bazar del centro: cada llegada da oro según la distancia. No pelea. |
 | <img src="docs/img/merchant-e2.jpg" width="190"> | **Carguero Interchain**<br><sub>Barco mercante</sub> | II | 100 🪵 · 50 🪙 | 120 · — · — | Comercia entre dos muelles tuyos: cada viaje da oro según la distancia. |
 | <img src="docs/img/warship-e2.jpg" width="190"> | **Galera Avalanche**<br><sub>Galera de ataque</sub> | II | 140 🪵 · 50 🪙 | 200 · 9 · 4.8 casillas | Barco de guerra con arqueros: ataca barcos, costas y edificios. |
+
+### Gran Bazar
+
+En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie, no se construye ni se puede destruir. Manda **carretas comerciantes** desde tu Mercado (clic derecho en el bazar, o *Comerciar*): cada viaje da oro según la distancia. Como el viaje tarda en proporción a la distancia, el oro por minuto es el mismo para los dos jugadores aunque el bazar no quede exactamente al centro. El mapa ahora termina en una cornisa de piedra clara, sin bosque decorativo afuera.
+
+<p align="center"><img src="docs/img/bazar.jpg" width="80%"><br><sub>El Gran Bazar: fuente, obelisco con el triángulo de Avalanche y puestos con los colores de los chapters.</sub></p>
 
 ### Agua y barcos
 
