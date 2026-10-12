@@ -89,7 +89,7 @@ Como en AoE, **cada era cambia el aspecto de los edificios** y desbloquea unidad
 
 Como en AoE, cada era cambia el aspecto de los edificios. Los techos y los muros cambian de material y aparece un elemento icónico de la época. Desde la era III, el color del equipo pasa de los techos a un borde alrededor del edificio y a un estandarte. Al subir de era, el juego anuncia lo que se desbloqueó.
 
-<img src="docs/img/eras.jpg" width="720" alt="El mismo establo en las seis eras">
+<img src="docs/img/eras.jpg" width="820" alt="El mismo establo en las siete eras y la Red Primaria holográfica">
 
 | Era | Muros | Techos | Elemento icónico |
 |---|---|---|---|
@@ -107,13 +107,15 @@ La era más futurista posible: la **Red Primaria se vuelve un holograma** (la si
 
 <p align="center"><img src="docs/img/era7-base.jpg" width="49%"> <img src="docs/img/era7-batalla.jpg" width="49%"><br><sub>Una base en la Edad Futurista y una batalla de robots, tanques de plasma y helicópteros.</sub></p>
 
+<p align="center"><img src="docs/img/era7-edificios.jpg" width="100%"><br><sub>Los edificios en la Edad Futurista: cerámica blanca, grafito, pisos de pizarra, neón del color del equipo y un anillo holográfico encima.</sub></p>
+
 Al avanzar de era se levanta sobre la Red Primaria una **columna de luz roja con el triángulo de Avalanche**, con una onda expansiva y un estallido de partículas.
 
 ### Personajes por era
 
 Las personas también cambian de equipo con cada era, y el triángulo de Avalanche aparece en escudos, tabardos y brazaletes.
 
-<p align="center"><img src="docs/img/personajes.jpg" width="80%"><br><sub>Aldeano y Centinela en las seis primeras eras. En la Futurista todos llevan casco blanco con visor de luz cian y peto blanco.</sub></p>
+<p align="center"><img src="docs/img/personajes.jpg" width="80%"><br><sub>Aldeano y Centinela en las siete eras (en la Futurista, casco blanco con visor de luz cian y peto blanco) y el robot de combate.</sub></p>
 
 | Era | Aldeano | Centinela (milicia) | Otros |
 |---|---|---|---|
@@ -161,7 +163,7 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | | Edificio | Era | Costo | Qué hace |
 |---|---|---|---|---|
 | <img src="docs/img/town-e1.jpg" width="210"> | **Red Primaria**<br><sub>Centro urbano</sub> | I | 275 🪵 · 100 🪨 | Corazón de la civilización. Entrena aldeanos, recibe todos los recursos y avanza de era. |
-| <img src="docs/img/house-e1.jpg" width="210"> | **Refugio Alpino**<br><sub>Casa</sub> | I | 30 🪵 | Aumenta la población máxima en 5. |
+| <img src="docs/img/house-e1.jpg" width="210"> | **Refugio Alpino**<br><sub>Casa</sub> | I | 30 🪵 | Aumenta la población máxima en 5. Necesita una casilla libre alrededor: no se pega al agua ni a otros edificios. |
 | <img src="docs/img/mill-e1.jpg" width="210"> | **Granero del Nodo**<br><sub>Molino</sub> | I | 100 🪵 | Punto de entrega de comida. Investiga mejoras agrícolas. |
 | <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Se reconoce por su techo de tablones y la pila de troncos. |
 | <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Se reconoce por el montículo de roca con túnel y la torre con polea. |
@@ -284,7 +286,7 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
   - con una fanfarria al cambiar de era;
   - cuando se derrumba un edificio.
 - **Selección:** clic en cualquier parte del cuerpo de una unidad (no solo la cabeza). Un clic con temblor del trackpad sigue contando como clic, y el recuadro selecciona una unidad con solo tocarle el cuerpo.
-- **Mercado en la partida:** selecciona tu Mercado DeFi y pulsa **Activar Mercado** (el botón grande del panel o la tecla T). Se abre tu sesión on-chain, con el gas gratis, y desde ahí compras (+100) y vendes (−100) cada recurso por GLORY.
+- **Mercado en la partida:** selecciona tu Mercado DeFi y pulsa **Activar Mercado** (el botón grande del panel o la tecla T). Se abre tu sesión on-chain, con el gas gratis, y desde ahí compras (+100) y vendes (−100) cada recurso por GLORY. Lo que compras llega al instante; lo que vendes queda registrado en la cadena y su GLORY aparece en verde junto a tu saldo (**+N**) hasta que termina la partida: al liquidarla, el verificador confirma con la re-simulación que esos recursos existían y el GLORY llega a tu wallet.
 - **Rendimiento:** botón **Ahorro** para laptops (30 fps, menos resolución).
 
 <p align="center"><img src="docs/img/fauna.jpg" width="70%"><br><sub>Fauna: oveja, vaca, ciervo, jabalí y lobo.</sub></p>

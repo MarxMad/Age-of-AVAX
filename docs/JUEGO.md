@@ -107,6 +107,10 @@ Las capturas del README salen del modo `?photo=<edificio|unidad>&era=N`.
   - **En el suelo:** las unidades van ahí.
 - **Actividad antes de nacer:** como en AoE, hay un solo botón de aldeano. Pon el punto de reunión sobre un árbol, una mina, una cantera, bayas o una granja, y cada aldeano nuevo nace con esa actividad. Se reparten entre los recursos iguales de alrededor (no todos en el mismo árbol). Si el recurso marcado se agota, toman otro igual cerca. El panel del edificio indica la actividad ("Aldeanos nuevos: madera").
 
+## Casas
+
+El Refugio Alpino ocupa una casilla, pero su modelo mide casi casilla y media. Por eso necesita **una casilla libre alrededor**: sin agua, montaña ni otros edificios (los árboles sí). Antes se podían pegar y se encimaban unas con otras o colgaban sobre el río.
+
 ## Granjas
 
 - **Tamaño:** el modelo llena exactamente su terreno de 3×3 casillas (120 px), igual que la vista previa de construcción.
