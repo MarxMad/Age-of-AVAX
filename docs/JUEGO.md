@@ -300,6 +300,10 @@ Para que los recursos no se estanquen en la partida larga:
 | Grupos | Ctrl + 1..9 guarda · 1..9 recupera |
 | Marcador en vivo | F4 muestra u oculta |
 
+## Partidas guardadas
+
+`src/ui/savegame.ts`: la partida contra la IA se guarda en el navegador (`age.save`) cada 4 s, al ocultar la pestaña y al cerrarla: semilla, configuración, órdenes aplicadas (`sim.log`), tick, cámara y sesión on-chain. Al volver se ofrece continuarla. Las órdenes vuelven a la cola en su tick y el bucle adelanta la simulación por tramos de ~25 ms con una barra de avance (30 min de juego ≈ 3 s), descartando los eventos del pasado. El resultado es idéntico bit a bit (prueba en `test/sim.test.ts`). No se guardan 1 vs 1 ni modos de captura; una partida de otra versión de las reglas se descarta con aviso, y la que termina se borra (la victoria se guarda aparte hasta cobrarla). El botón Atrás pregunta antes de salir y cerrar la pestaña pide confirmación.
+
 ## Tutorial y fin de partida
 
 - **Tutorial** (`src/ui/tutorial.ts`): seis pasos en la primera partida contra la IA. Cada paso revisa el estado de la simulación (selección, órdenes de recolectar, casas, cola del centro urbano, ejército) y avanza solo; el botón que toca usar parpadea. Se guarda en el navegador (`age.tut`) y se puede repetir con `?tutorial`. No aparece en 1 vs 1 ni en los modos de captura.
