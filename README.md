@@ -166,10 +166,10 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | | Edificio | Era | Costo | Qué hace |
 |---|---|---|---|---|
 | <img src="docs/img/town-e1.jpg" width="210"> | **Red Primaria**<br><sub>Centro urbano</sub> | I | 275 🪵 · 100 🪨 | Corazón de la civilización. Entrena aldeanos, recibe todos los recursos y avanza de era. |
-| <img src="docs/img/house-e1.jpg" width="210"> | **Refugio Alpino**<br><sub>Casa</sub> | I | 30 🪵 | Aumenta la población máxima en 5. Necesita una casilla libre alrededor: no se pega al agua ni a otros edificios. |
+| <img src="docs/img/house-e1.jpg" width="210"> | **Refugio Alpino**<br><sub>Casa</sub> | I | 30 🪵 | Aumenta la población máxima en 5. Cabe en una casilla: se construye en filas seguidas, pegada a otras casas. |
 | <img src="docs/img/mill-e1.jpg" width="210"> | **Granero del Nodo**<br><sub>Molino</sub> | I | 100 🪵 | Punto de entrega de comida. Investiga mejoras agrícolas. |
-| <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Se reconoce por su techo de tablones y la pila de troncos. |
-| <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Se reconoce por el montículo de roca con túnel y la torre con polea. |
+| <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Ocupa una casilla, del tamaño de una casa; se reconoce por su techo de tablones y la pila de troncos. |
+| <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Ocupa una casilla, del tamaño de una casa; se reconoce por el montículo de roca con túnel y la torre con polea. |
 | <img src="docs/img/farm-e1.jpg" width="210"> | **Granja de Staking**<br><sub>Granja</sub> | I | 60 🪵 | Fuente renovable de comida. Un aldeano la trabaja. Al agotarse se vuelve a sembrar sola por 60 🪵 (si no hay madera, desaparece). |
 | <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende comida, madera y piedra por oro (los precios suben al comprar y bajan al vender). Entrena carretas comerciantes. |
 | <img src="docs/img/dock-e1.jpg" width="210"> | **Puerto Teleporter**<br><sub>Muelle</sub> | I | 150 🪵 | Se construye en la orilla, sobre el agua. Entrena los cuatro barcos y recibe el pescado. |
@@ -271,6 +271,7 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
   - ocupan 3×3 casillas y se construyen pegadas, formando una parcela;
   - al agotarse se resiembran solas por 60 🪵.
 - **Movimiento:** los aldeanos caminan entre los árboles, cruzan sus propios edificios, se reparten alrededor de cada recurso y no se traban.
+- **Unidades atascadas:** si una unidad lleva 2 segundos intentando caminar sin avanzar, se destraba sola. Si quedó parada dentro de algo que no puede pisar (una torre o muralla que se construyó encima, un árbol, un edificio enemigo), sale a la casilla libre más cercana; si está encajonada, recalcula la ruta colándose entre los árboles. Si quedó encerrada en un hueco de pocas casillas por edificios y árboles, salta a la casilla libre de al lado. Los cercos grandes hechos a propósito con murallas siguen funcionando.
 - **Murallas y puertas:**
   - nadie atraviesa una empalizada ni una muralla;
   - si un destino queda encerrado, la unidad va al punto más cercano al que sí puede llegar;
@@ -297,12 +298,18 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
   - cuando se derrumba un edificio.
 - **Selección:** clic en cualquier parte del cuerpo de una unidad (no solo la cabeza). Un clic con temblor del trackpad sigue contando como clic, y el recuadro selecciona una unidad con solo tocarle el cuerpo.
 - **Mercado en la partida:** como en AoE2, el Mercado cambia recursos por oro al instante, sin wallet ni transacciones. Vendes 100 de comida, madera o piedra y recibes oro; con ese oro compras 100 del recurso que te falte. La comisión es del 30% y los precios se comparten con el rival: cada compra sube el precio 3 y cada venta lo baja 3. GLORY se gana con victorias y se gasta en la Bóveda.
+- **Cómo comerciar:** hay tres formas.
+  - **Comprar y vender:** selecciona tu **Mercado DeFi**. La fila de en medio compra 100 de un recurso con oro y la de abajo vende 100 por oro.
+  - **Por tierra:** en el Mercado DeFi entrena una **carreta comerciante**, pulsa **Comerciar** y haz clic en el **Gran Bazar** del centro del mapa. Va y vuelve sola y cada viaje da oro.
+  - **Por mar:** con **dos muelles** tuyos, entrena un **barco mercante** en uno, pulsa **Comerciar** y haz clic en el otro. Cuanto más lejos estén, más oro da cada viaje.
 - **Eliminar:** con unidades o edificios propios seleccionados, pulsa **Supr** (o borrar en Mac) o el botón de la papelera del panel. Si cancelas una obra en construcción, recuperas todo lo que costó, y la cola de producción de un edificio eliminado también se devuelve. Demoler tu último centro urbano pide confirmación, porque perderías la partida.
 - **Rendimiento:** botón **Ahorro** para laptops (30 fps, menos resolución).
 
 <p align="center"><img src="docs/img/fauna.jpg" width="70%"><br><sub>Fauna: oveja, vaca, ciervo, jabalí y lobo.</sub></p>
 
 <p align="center"><img src="docs/img/lobby.jpg" width="80%"><br><sub>Lobby: mapa, civilización, ejército tokenizado, contra la IA o 1 vs 1 con código de sala.</sub></p>
+
+**Cómo jugar un 1 vs 1:** JUGAR → pestaña **1 vs 1** → **Crear sala**. Cada sala tiene su propio código de 5 letras; compártelo o pulsa **Copiar enlace**. Tu rival abre el enlace (o escribe el código) y pulsa **Unirse**, y la partida empieza en las dos pantallas. Si pruebas con dos pestañas del mismo navegador, comparten la wallet: la segunda entra como invitada y esa partida no paga GLORY. Más detalles en [docs/MULTIJUGADOR.md](docs/MULTIJUGADOR.md).
 
 ## Cómo funciona on-chain
 

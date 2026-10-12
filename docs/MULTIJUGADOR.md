@@ -2,6 +2,18 @@
 
 Salas con código: un jugador crea la sala y comparte el código de 5 letras (o el enlace `…/?sala=CODIGO`), y el otro se une. La partida empieza al entrar el segundo jugador.
 
+Paso a paso:
+
+1. **Anfitrión:** JUGAR → pestaña **1 vs 1** → **Crear sala**. Cada sala recibe un código nuevo. Si tienes la sesión iniciada, tu wallet firma el código de la sala (así nadie juega a tu nombre).
+2. **Invitado:** abre el enlace o escribe el código y pulsa **Unirse**.
+3. La partida arranca en las dos pantallas al mismo tiempo.
+
+Detalles:
+
+- Si el anfitrión no termina de firmar en 20 segundos, la sala sigue abierta y juega como invitado (sin recompensa).
+- Para probar en un solo navegador, las dos pestañas comparten la wallet: la segunda entra como invitada y la partida no paga recompensa. Para cobrar GLORY hacen falta dos wallets distintas (y dos conexiones distintas).
+- Al entrar con un enlace de invitación, el código se borra de la dirección: recargar no vuelve a ofrecer la sala vieja.
+
 ## Lockstep determinista
 
 No se transmite el estado del juego, solo **comandos**. Las dos simulaciones son deterministas, así que con los mismos comandos en el mismo tick llegan al mismo estado.
@@ -39,6 +51,6 @@ Código: `src/net/protocol.ts` (protocolo compartido), `src/net/lockstep.ts` (cl
 ```bash
 cd game
 pnpm server                      # servidor en :8787
-pnpm dev                         # dos pestañas o navegadores en http://localhost:5173
+pnpm dev                         # dos pestañas (la segunda entra como invitada) o dos navegadores en http://localhost:5173
 npx tsx scripts/pvp-e2e.ts       # prueba automática: dos clientes, lockstep, hashes y resultado
 ```
