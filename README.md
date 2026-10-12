@@ -56,6 +56,8 @@ Un RTS en 3D con la dinámica clásica de *Age of Empires*: recolectar, construi
 
 ### Primera partida, fin de partida y comunidad
 
+- **Intro y landing:** al abrir el juego aparece una portada a pantalla completa con el juego en movimiento de fondo, el logo animado y un botón **JUGAR**. Bajando: las siete eras, clips de batallas, la Era Futurista, el mar y la Maravilla, cómo funciona lo on-chain (email, sin gas, GLORY, NFT) y cómo se juega, con animaciones al hacer scroll y el tráiler. Los enlaces de invitación a una sala la saltan.
+
 - **Tutorial:** la primera vez que juegas, seis pasos guiados que avanzan solos cuando haces lo que piden: seleccionar aldeanos, recolectar, construir un Refugio Alpino, entrenar aldeanos, preparar el ejército y atacar. El botón que toca usar parpadea en rojo. Se puede saltar y volver a ver con `?tutorial`.
 
 <p align="center"><img src="docs/img/tutorial.jpg" width="80%"><br><sub>Paso 1 del tutorial, arriba a la derecha.</sub></p>
