@@ -6,7 +6,8 @@ Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar
 
 <p align="center">
 <a href="https://ageofavax.app"><b>▶ Jugar en ageofavax.app</b></a> ·
-<a href="docs/video/Age-of-Avax-comercial.mp4">Comercial (60 s)</a> ·
+<a href="docs/video/Age-of-Avax-promo-2-ES.mp4">Video (ES)</a> ·
+<a href="docs/video/Age-of-Avax-promo-2-EN.mp4">Video (EN)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_ES.pdf">Whitepaper (ES)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_EN.pdf">Whitepaper (EN)</a> ·
 <a href="docs/ECONOMIA.md">Economía</a> ·
@@ -15,8 +16,9 @@ Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar
 
 ---
 
-<p align="center"><a href="docs/video/Age-of-Avax-comercial.mp4"><img src="docs/img/comercial.jpg" width="80%" alt="Ver el comercial de Age of Avax"></a><br>
-<sub>Comercial de 60 s: <a href="docs/video/Age-of-Avax-comercial.mp4">horizontal</a> · <a href="docs/video/Age-of-Avax-comercial-vertical.mp4">vertical 9:16</a> (estados, Instagram, TikTok). Tomas reales del juego, música generada por código.</sub></p>
+<p align="center"><a href="docs/video/Age-of-Avax-promo-2-ES.mp4"><img src="docs/img/comercial2.jpg" width="80%" alt="Ver el video de Age of Avax"></a><br>
+<sub>Video de 60 s: <a href="docs/video/Age-of-Avax-promo-2-ES.mp4">español</a> · <a href="docs/video/Age-of-Avax-promo-2-EN.mp4">English</a>. Ciudades enteras, granjas, cambio de era en vivo, batallas en tierra y mar, el Mercado, carretas al Gran Bazar y flotas. Tomas reales del juego, música generada por código.<br>
+Comercial anterior: <a href="docs/video/Age-of-Avax-comercial.mp4">horizontal</a> · <a href="docs/video/Age-of-Avax-comercial-vertical.mp4">vertical 9:16</a>.</sub></p>
 
 ## Qué es
 
