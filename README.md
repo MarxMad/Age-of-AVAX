@@ -5,7 +5,7 @@
 Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar GLORY sin pagar gas · 1 vs 1 con salas</p>
 
 <p align="center">
-<a href="https://age-of-avax.vercel.app"><b>▶ Jugar</b></a> ·
+<a href="https://ageofavax.app"><b>▶ Jugar en ageofavax.app</b></a> ·
 <a href="docs/video/Age-of-Avax-comercial.mp4">Comercial (60 s)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_ES.pdf">Whitepaper (ES)</a> ·
 <a href="docs/Age_of_Avax_Whitepaper_v1.2_EN.pdf">Whitepaper (EN)</a> ·
@@ -438,7 +438,7 @@ En desarrollo, sin fecha comprometida:
 El código de Age of Avax (juego, simulación, servidor verificador, contratos y scripts de la L1) es **privado**.
 Este repositorio es la vitrina pública: documentación, capturas y whitepapers.
 
-- **Jugar:** https://age-of-avax.vercel.app
+- **Jugar:** https://ageofavax.app
 - **Jueces, auditores y socios:** se da acceso de lectura al repositorio privado a solicitud (abre un issue).
 
 © Age of Avax. Todos los derechos reservados, ver [LICENSE](LICENSE).
