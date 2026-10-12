@@ -109,7 +109,7 @@ Las capturas del README salen del modo `?photo=<edificio|unidad>&era=N`.
 
 ## Casas
 
-El Refugio Alpino ocupa una casilla, pero su modelo mide casi casilla y media. Por eso necesita **una casilla libre alrededor**: sin agua, montaña ni otros edificios (los árboles sí). Antes se podían pegar y se encimaban unas con otras o colgaban sobre el río.
+El Refugio Alpino cabe en una casilla, así que las casas **se construyen seguidas**, pegadas una a otra, sin encimarse ni colgar sobre el agua. El aserradero y el campamento minero también ocupan una sola casilla y miden como una casa.
 
 ## Granjas
 
