@@ -171,7 +171,7 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Se reconoce por su techo de tablones y la pila de troncos. |
 | <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Se reconoce por el montículo de roca con túnel y la torre con polea. |
 | <img src="docs/img/farm-e1.jpg" width="210"> | **Granja de Staking**<br><sub>Granja</sub> | I | 60 🪵 | Fuente renovable de comida. Un aldeano la trabaja. Al agotarse se vuelve a sembrar sola por 60 🪵 (si no hay madera, desaparece). |
-| <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende recursos con tokens reales en la Age L1: cada recurso tiene su pool contra GLORY. Entrena carretas comerciantes. |
+| <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende comida, madera y piedra por oro (los precios suben al comprar y bajan al vender). Entrena carretas comerciantes. |
 | <img src="docs/img/dock-e1.jpg" width="210"> | **Puerto Teleporter**<br><sub>Muelle</sub> | I | 150 🪵 | Se construye en la orilla, sobre el agua. Entrena los cuatro barcos y recibe el pescado. |
 | <img src="docs/img/barracks-e1.jpg" width="210"> | **Cuartel del Consenso**<br><sub>Cuartel</sub> | I | 100 🪵 · 40 🪨 | Entrena infantería: milicia, mosqueteros y fusileros. Se reconoce por su techo de pabellón, la torre de guardia y el patio de arena. |
 | <img src="docs/img/palisade-e1.jpg" width="210"> | **Empalizada de Hielo**<br><sub>Empalizada</sub> | I | 3 🪵 | Muro barato de troncos. Arrastra para trazar una línea. |
@@ -296,7 +296,8 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
   - con una fanfarria al cambiar de era;
   - cuando se derrumba un edificio.
 - **Selección:** clic en cualquier parte del cuerpo de una unidad (no solo la cabeza). Un clic con temblor del trackpad sigue contando como clic, y el recuadro selecciona una unidad con solo tocarle el cuerpo.
-- **Mercado en la partida:** selecciona tu Mercado DeFi y pulsa **Activar Mercado** (el botón grande del panel o la tecla T). Se abre tu sesión on-chain, con el gas gratis, y desde ahí compras (+100) y vendes (−100) cada recurso por GLORY. Lo que compras llega al instante; lo que vendes queda registrado en la cadena y su GLORY aparece en verde junto a tu saldo (**+N**) hasta que termina la partida: al liquidarla, el verificador confirma con la re-simulación que esos recursos existían y el GLORY llega a tu wallet.
+- **Mercado en la partida:** como en AoE2, el Mercado cambia recursos por oro al instante, sin wallet ni transacciones. Vendes 100 de comida, madera o piedra y recibes oro; con ese oro compras 100 del recurso que te falte. La comisión es del 30% y los precios se comparten con el rival: cada compra sube el precio 3 y cada venta lo baja 3. GLORY se gana con victorias y se gasta en la Bóveda.
+- **Eliminar:** con unidades o edificios propios seleccionados, pulsa **Supr** (o borrar en Mac) o el botón de la papelera del panel. Si cancelas una obra en construcción, recuperas todo lo que costó, y la cola de producción de un edificio eliminado también se devuelve. Demoler tu último centro urbano pide confirmación, porque perderías la partida.
 - **Rendimiento:** botón **Ahorro** para laptops (30 fps, menos resolución).
 
 <p align="center"><img src="docs/img/fauna.jpg" width="70%"><br><sub>Fauna: oveja, vaca, ciervo, jabalí y lobo.</sub></p>
