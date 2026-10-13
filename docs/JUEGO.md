@@ -6,7 +6,7 @@ RTS en 3D (Three.js) con la dinámica clásica de Age of Empires: recolectar, co
 
 - Tick fijo de **30 Hz** y RNG con semilla, sin DOM ni render (`src/sim`).
 - El jugador solo modifica la partida con **comandos** (`train`, `rally`, `build`, `order`…). `seed + log de comandos` reproduce exactamente la partida, y el verificador lo usa para firmar resultados.
-- `SIM_VERSION` (hoy **0.13.0**) debe coincidir entre el cliente y el verificador. Súbela cada vez que cambien las reglas y reinicia `pnpm server`.
+- `SIM_VERSION` (hoy **0.24.0**) debe coincidir entre el cliente y el verificador: si no, el verificador rechaza la victoria con "versión de reglas distinta". Súbela cada vez que cambien las reglas y, al publicar, actualiza el servidor en el mismo momento (en la PC: `cd ~/age10 && git pull && sudo systemctl restart age-servidor`). `/api/health` muestra la versión que corre el servidor (`simVersion`).
 
 ## Eras
 
@@ -107,6 +107,59 @@ Las capturas del README salen del modo `?photo=<edificio|unidad>&era=N`.
   - **En el suelo:** las unidades van ahí.
 - **Actividad antes de nacer:** como en AoE, hay un solo botón de aldeano. Pon el punto de reunión sobre un árbol, una mina, una cantera, bayas o una granja, y cada aldeano nuevo nace con esa actividad. Se reparten entre los recursos iguales de alrededor (no todos en el mismo árbol). Si el recurso marcado se agota, toman otro igual cerca. El panel del edificio indica la actividad ("Aldeanos nuevos: madera").
 
+## Edificios: qué fabrican y qué mejoran
+
+Nombres de la civilización Avalanche (entre paréntesis, el nombre genérico). La era es desde cuándo se puede construir o
+entrenar. Los costos de cada mejora están en el botón del juego (también se listan aquí).
+
+### Economía
+
+| Edificio | Era | Qué entrena | Qué recibe | Mejoras que investiga |
+|----------|-----|-------------|------------|-----------------------|
+| **Red Primaria** (centro urbano) | I | Validador (aldeano) · Sabio Snowman (monje, era II) | Comida, madera, oro y piedra | **Avanzar de era** (I→VII) · **Carretilla** (II): aldeanos cargan +5 y caminan 10 % más rápido · **Almacenes** (III): +50 % de capacidad de almacén · **Mampostería** (III): todos tus edificios +20 % de vida · **Logística** (VI): aldeanos cargan +10 y caminan 15 % más rápido |
+| **Refugio Alpino** (casa) | I | — | — | — (da +5 de población) |
+| **Granero del Nodo** (molino) | I | — | Comida | **Arado** (II): granjas +25 % · **Collera** (III): granjas +20 % · **Rotación de cultivos** (V): granjas +25 % |
+| **Granja de Staking** (granja) | I | — | — | — (fuente renovable de comida; se resiembra con 60 de madera) |
+| **Aserradero Firewood** (aserradero) | I | — | Madera | **Hacha doble** (I): tala +20 % · **Sierra de arco** (III): tala +15 % |
+| **Mina de AVAX** (campamento minero) | I | — | Oro y piedra | **Pico minero** (II): oro y piedra +20 % · **Minería profunda** (IV): oro y piedra +15 % |
+| **Mercado DeFi** (mercado) | I | Caravana DeFi (carreta comerciante, era II) | — | Compra y vende comida, madera y piedra por oro (los precios suben al comprar y bajan al vender) |
+| **Puerto Teleporter** (muelle) | I | Pesquero Coreth (I) · Transbordador ICM (I) · Carguero Interchain (II) · Galera Avalanche (II) | Pescado (comida) | — |
+| **Academia Team1** (universidad) | IV | — | — | **Balística** (IV): +40 de alcance a distancia · **Química** (V): +3 de ataque a distancia · **Guiado de precisión** (VI): asedio y blindados +20 % de ataque y +40 de alcance |
+| **Templo del Consenso** (maravilla) | IV | — | — | — (si resiste 5 minutos terminada, ganas) |
+
+### Militares
+
+| Edificio | Era | Qué entrena | Mejoras que investiga |
+|----------|-----|-------------|-----------------------|
+| **Cuartel del Consenso** (cuartel) | I | Centinela (milicia, I) · Mosquetero C-Chain (IV) · Fusilero Warp (V) · Mecha Validador (robot, VII) | — |
+| **Galería Snowball** (galería de tiro) | II | Tirador Snowball (arquero) | — |
+| **Establo Snowflake** (establo) | II | Explorador Snowflake (II) · Caballero Avalanche (III) | — |
+| **Forja HyperSDK** (herrería) | II | — | **Forja** (II): +2 de ataque cuerpo a cuerpo · **Armadura de placas** (III): +2 de armadura · **Altos hornos** (IV): +2 de ataque cuerpo a cuerpo · **Blindaje** (V): +2 de armadura |
+| **Taller de Subnets** (taller de asedio) | III | Catapulta Glaciar (III) · Cañón Subnet (IV) | — |
+| **Fortaleza L1** (castillo) | III | Caballero Avalanche · Catapulta Glaciar | — (dispara sola y da +20 de población) |
+| **Fábrica Avalanche9000** (fábrica) | V | Cañón Subnet (IV) · Tanque Avalanche9000 (VI) · Halcón Interchain (helicóptero, VII) · Tanque de Plasma Etna (VII) | **Cadena de montaje** (V): todos tus edificios entrenan 25 % más rápido |
+| **Torre Validadora** (torre) | II | — | — (dispara sola a los enemigos cercanos) |
+| **Empalizada de Hielo**, **Muralla Glaciar** y **Puerta Glaciar** | I / II / I | — | — (se trazan arrastrando; la puerta deja pasar solo a tus unidades) |
+
+En el juego, cada mejora se ve como una insignia: el dibujo a color dice **qué** mejora (trigo, madera, oro y piedra,
+espada, escudo, mira…) y la etiqueta verde de la esquina dice **cuánto** (+25 %, +2, +40).
+
+## Dificultad de la IA
+
+Se elige en el lobby, sobre el botón Jugar, y el juego la recuerda para la próxima partida.
+
+| Dificultad | Recursos de la IA | Avance de era | Ejército | Primer ataque | GLORY |
+|------------|-------------------|---------------|----------|---------------|-------|
+| **Fácil** | ×0.55 | 40 % más lento | ×0.6, entrena cada 14 s | 5:00 | No (práctica) |
+| **Normal** | ×1 | como siempre | ×1, cada 10 s | 3:00 | Sí |
+| **Difícil** | ×1.5 | 15 % más rápido | ×1.4, cada 8 s | 2:30 | Sí |
+| **Experto** | ×2.1 | 30 % más rápido | ×1.9, cada 6 s | 2:00 | Sí |
+
+El primer ataque es cuando la oleada sale de su base; con el mapa de 108 × 108 tarda cerca de un minuto en llegar a la
+tuya (en Normal, hacia el minuto 3:50). Las oleadas van contra **tu edificio más cercano**: antes iban contra lo más
+cercano tuyo, y si era un aldeano o el explorador a más de 1.100 px la orden se cancelaba sola y la oleada no salía.
+La dificultad viaja en el replay y el verificador la re-simula igual. Fácil no cobra GLORY: si cobrara, se podría farmear contra una IA débil.
+
 ## Casas
 
 El Refugio Alpino cabe en una casilla, así que las casas **se construyen seguidas**, pegadas una a otra, sin encimarse ni colgar sobre el agua. El aserradero y el campamento minero también ocupan una sola casilla y miden como una casa.
@@ -116,7 +169,13 @@ El Refugio Alpino cabe en una casilla, así que las casas **se construyen seguid
 - **Tamaño:** el modelo llena exactamente su terreno de 3×3 casillas (120 px), igual que la vista previa de construcción.
 - **Granjas pegadas:** se construyen una junto a otra, como las casas, y forman una parcela continua. Shift + clic coloca varias seguidas.
 - **Un aldeano por granja:** el primero que empieza a trabajarla se queda con ella (aunque vaya a descargar al molino). Si mandas a varios a la misma granja, los demás buscan la granja libre más cercana; si no hay ninguna, quedan inactivos y el panel de eventos avisa.
-- **Trigo:** va por surcos (una malla por surco) y se vacía surco a surco al cosecharse. Cuesta 10 llamadas de dibujo por granja, no una por espiga.
+- **Tres cultivos:** trigo, maíz o calabazas. Cada granja toma uno al azar y, cada vez que se resiembra, puede cambiar a otro. Es solo visual: los tres dan la misma comida.
+- **Surcos:** el cultivo va por surcos (una malla por surco, o dos en el maíz y las calabazas) y se vacía surco a surco al cosecharse. Así cuesta unas 10–20 llamadas de dibujo por granja, no una por planta.
+- **Cambian con la era (sin tapar el cultivo):**
+  - **Eras I–II:** cerca baja de madera y espantapájaros.
+  - **Eras III–IV:** muro bajo de piedra y pacas de heno.
+  - **Eras V–VI:** cerca metálica, canal de riego al centro y tanque de agua.
+  - **Era VII:** bordes de luz cian y un dron de riego.
 
 Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de madera** (como la cola de resiembra del molino en AoE). El aldeano sigue trabajándola y el panel de eventos avisa "Granja resembrada". Si no hay madera suficiente, la granja desaparece y el aviso dice cuánta falta.
 
@@ -161,21 +220,50 @@ Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de 
 
 ## Mapa y fauna
 
-- **Recursos por mapa** (semilla 7):
+- **Tamaño:** 108 × 108 casillas de 40 px (4.320 px por lado), un 50 % más por lado que el mapa original de 72 × 72.
+  Los centros urbanos están en la diagonal, a 18 casillas de su esquina, unos 4.000 px uno del otro.
+- **Simetría:** el terreno es simétrico respecto del centro y todo lo que rodea a cada base (bosques, vetas, bayas,
+  ganado y jabalíes) se coloca en espejo, casilla por casilla. Lo que se reparte al azar por el mapa (vetas sueltas,
+  bosques, manadas y lobos) queda a más de 650–1.000 px de ambas bases, para que ninguna tenga ventaja.
+- **Cantidades:** bosques, vetas, bayas, fauna, peces y la decoración del terreno se escalan con el área (×2,25), así que
+  la densidad es la misma que antes.
 
-| Mapa | Árboles | Oro + piedra | Bayas | Ganado (ovejas + vacas) | Ciervos | Jabalíes | Lobos |
-|---|---|---|---|---|---|---|---|
-| Continental | 388 (antes 163) | 21 (antes 9) | 19 (antes 6) | 23 | 14 | 5 | 7 |
-| Desierto | 219 | 28 | 21 | 24 | 16 | 9 | 6 |
-| Islas | 167 | 18 | 13 | 21 | 6 | 7 | 0 |
-| Nieve | 365 | 21 | 18 | 23 | 11 | 5 | 4 |
+### Oro y piedra en vetas
+
+Como en *Age of Empires II*, el oro y la piedra vienen en **vetas de varias piezas pegadas**, una por casilla y en dos
+filas, así cada pieza toca una casilla libre y la pueden trabajar varios aldeanos a la vez. Al agotarse una pieza, el
+aldeano pasa sola a la de al lado (y el campamento minero manda a sus aldeanos a la pieza con menos gente).
+
+| | Por pieza | Junto a cada base | Total por base |
+|---|---|---|---|
+| Oro | 400 | 2 vetas: 5 y 4 piezas | **3.600** (antes 1.600: dos minas de 800) |
+| Piedra | 350 | 1 veta de 4 piezas | **1.400** (antes 600: una cantera) |
+
+- **Centro del mapa:** una veta de oro de 2 × 2 justo en el centro y dos de piedra a los lados, a la misma distancia de
+  ambos jugadores.
+- **Resto del mapa:** vetas sueltas de 3 o 4 piezas a más de 900 px de las bases, para que valga la pena expandirse.
+- **Desierto:** una veta extra de oro y otra de piedra en cada base. **Montañas y Desierto** tienen además vetas extra
+  repartidas.
+- Las piezas de oro son roca ocre con pepitas doradas; las de piedra, bloques claros. Ambas se van vaciando al recolectar.
+
+- **Recursos por mapa** (semilla 7; oro y piedra en piezas):
+
+| Mapa | Árboles | Oro · piedra | Bayas | Ganado (ovejas + vacas) | Ciervos | Jabalíes | Lobos | Peces |
+|---|---|---|---|---|---|---|---|---|
+| Tierra firme | 654 | 65 · 63 | 28 | 30 | 31 | 6 | 8 | 84 |
+| Ríos | 750 | 69 · 60 | 36 | 24 | 27 | 11 | 13 | 30 |
+| Islas | 243 | 54 · 53 | 17 | 20 | 15 | 7 | 5 | 98 |
+| Costa | 634 | 64 · 58 | 29 | 31 | 24 | 8 | 17 | 86 |
+| Desierto | 357 | 77 · 79 | 25 | 27 | 27 | 12 | 10 | 70 |
+| Montañas | 672 | 88 · 89 | 39 | 28 | 28 | 11 | 12 | 0 |
+| Nieve | 603 | 61 · 59 | 24 | 23 | 26 | 10 | 10 | 0 |
 
 - **Cada base:**
   - tres bosques;
   - dos arbustos de bayas;
   - ocho ovejas y dos vacas;
-  - dos jabalíes cerca.
-- **Resto del mapa:** minas de oro y canteras repartidas a más de 520 px de las bases, para que valga la pena expandirse.
+  - dos jabalíes cerca;
+  - dos vetas de oro y una de piedra.
 
 | Animal | Comida | Comportamiento |
 |---|---|---|
@@ -183,7 +271,7 @@ Cuando una granja se agota, se vuelve a sembrar sola cobrando su costo, **60 de 
 | Vaca | 180 | ganado lento y robusto |
 | Ciervo | 140 | salvaje, huye pastando; se caza al instante |
 | Jabalí | 320 | **se defiende**: 70 de vida y 3 de ataque. El aldeano que lo caza lo ataca con su lanza (doble daño) hasta abatirlo y luego lo recolecta. Mejor entre dos. |
-| Lobo | — | **depredador**: 45 de vida y 4 de ataque. Ataca a cualquier unidad a menos de 130 px y la persigue. Aparece en manadas, a más de 800 px de las bases (más en la nieve). Los militares ociosos lo atacan solos. |
+| Lobo | — | **depredador**: 45 de vida y 4 de ataque. Ataca a cualquier unidad a menos de 130 px y la persigue. Aparece en manadas, a más de 1.000 px de las bases (más en la nieve). Los militares ociosos lo atacan solos. |
 
 - **Los aldeanos se defienden** de un animal que los ataca y, al terminar, retoman su tarea.
 - **Clic derecho sobre un lobo** ordena atacarlo.

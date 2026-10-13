@@ -2,14 +2,14 @@
 
 <h1 align="center">Age of Avax</h1>
 <p align="center"><b>Estrategia en tiempo real de la Edad Antigua a la Moderna, con economía on-chain en su propia L1 de Avalanche.</b><br>
-Con <b>Team1</b> · juega gratis en el navegador · conecta tu wallet para ganar GLORY sin pagar gas · 1 vs 1 con salas</p>
+Con <b>Team1</b> · juega gratis en el navegador · 7 eras, de la Antigua a la Futurista · IA en 4 dificultades · conecta tu wallet para ganar GLORY sin pagar gas · 1 vs 1 con salas</p>
 
 <p align="center">
 <a href="https://ageofavax.app"><b>▶ Jugar en ageofavax.app</b></a> ·
 <a href="docs/video/Age-of-Avax-promo-2-ES.mp4">Video (ES)</a> ·
 <a href="docs/video/Age-of-Avax-promo-2-EN.mp4">Video (EN)</a> ·
-<a href="docs/Age_of_Avax_Whitepaper_v1.2_ES.pdf">Whitepaper (ES)</a> ·
-<a href="docs/Age_of_Avax_Whitepaper_v1.2_EN.pdf">Whitepaper (EN)</a> ·
+<a href="docs/Age_of_Avax_Whitepaper_v1.3_ES.pdf">Whitepaper (ES)</a> ·
+<a href="docs/Age_of_Avax_Whitepaper_v1.3_EN.pdf">Whitepaper (EN)</a> ·
 <a href="docs/ECONOMIA.md">Economía</a> ·
 <a href="docs/MULTIJUGADOR.md">1 vs 1</a>
 </p>
@@ -48,6 +48,10 @@ Un RTS en 3D con la dinámica clásica de *Age of Empires*: recolectar, construi
   - **Mercado P2P.**
 
   Cada tarjeta muestra el modelo 3D del ítem (el caballero con los colores de la civilización, la unidad, el edificio o la skin aplicada), su rareza, cuántos se han acuñado y el precio.
+- **Íconos a color:** los recursos se dibujan como muslo, troncos, monedas y roca, también en los costos.
+- **Mejoras como insignias:** cada mejora muestra el dibujo de lo que mejora y una etiqueta verde con cuánto (▲+25 %). Al pasar el mouse se ve el costo, el tiempo y el efecto exacto.
+
+<p align="center"><img src="docs/img/mejoras.jpg" width="70%"><br><sub>Mejoras del molino: Arado +25 %, Collera +20 % y Rotación de cultivos +25 %.</sub></p>
 
 <p align="center"><img src="docs/img/boveda.jpg" width="85%"><br><sub>La Bóveda: civilizaciones con su color, rareza, acuñados y precio en GLORY.</sub></p>
 
@@ -130,6 +134,7 @@ Las personas también cambian de equipo con cada era, y el triángulo de Avalanc
 | IV | tricornio | cresta en el casco | caballero con penacho alto y capa |
 | V | gorra de obrero y overol | — | — |
 | VI | casco de obra y chaleco reflectante | — | fusilero con visor |
+| VII | casco blanco con visor de luz cian | peto blanco | robot de combate, helicóptero y tanque de plasma |
 
 **Animaciones:**
 - tajo con carga y recuperación (milicia);
@@ -172,7 +177,7 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 | <img src="docs/img/mill-e1.jpg" width="210"> | **Granero del Nodo**<br><sub>Molino</sub> | I | 100 🪵 | Punto de entrega de comida. Investiga mejoras agrícolas. |
 | <img src="docs/img/lumbercamp-e1.jpg" width="210"> | **Aserradero Firewood**<br><sub>Aserradero</sub> | I | 100 🪵 | Punto de entrega de madera. Investiga mejoras de tala. Ocupa una casilla, del tamaño de una casa; se reconoce por su techo de tablones y la pila de troncos. |
 | <img src="docs/img/miningcamp-e1.jpg" width="210"> | **Mina de AVAX**<br><sub>Campamento minero</sub> | I | 100 🪵 | Punto de entrega de oro y piedra. Investiga mejoras de minería. Ocupa una casilla, del tamaño de una casa; se reconoce por el montículo de roca con túnel y la torre con polea. |
-| <img src="docs/img/farm-e1.jpg" width="210"> | **Granja de Staking**<br><sub>Granja</sub> | I | 60 🪵 | Fuente renovable de comida. Un aldeano la trabaja. Al agotarse se vuelve a sembrar sola por 60 🪵 (si no hay madera, desaparece). |
+| <img src="docs/img/farm-e1.jpg" width="210"> | **Granja de Staking**<br><sub>Granja</sub> | I | 60 🪵 | Fuente renovable de comida. Un aldeano la trabaja. Al agotarse se vuelve a sembrar sola por 60 🪵 (si no hay madera, desaparece). Siembra trigo, maíz o calabazas, y su aspecto cambia con la era. |
 | <img src="docs/img/market-e1.jpg" width="210"> | **Mercado DeFi**<br><sub>Mercado</sub> | I | 175 🪵 | Compra y vende comida, madera y piedra por oro (los precios suben al comprar y bajan al vender). Entrena carretas comerciantes. |
 | <img src="docs/img/dock-e1.jpg" width="210"> | **Puerto Teleporter**<br><sub>Muelle</sub> | I | 150 🪵 | Se construye en la orilla, sobre el agua. Entrena los cuatro barcos y recibe el pescado. |
 | <img src="docs/img/barracks-e1.jpg" width="210"> | **Cuartel del Consenso**<br><sub>Cuartel</sub> | I | 100 🪵 · 40 🪨 | Entrena infantería: milicia, mosqueteros y fusileros. Se reconoce por su techo de pabellón, la torre de guardia y el patio de arena. |
@@ -191,9 +196,11 @@ Las partículas se dibujan en tres mallas instanciadas (un draw call cada una) y
 
 <p align="center"><img src="docs/img/siluetas.jpg" width="80%"><br><sub>Cada edificio se reconoce desde arriba. De izquierda a derecha: aserradero (techo de tablones y troncos), campamento minero (rocas, túnel y torre con polea), cuartel (techo de pabellón y patio de arena) y taller de asedio (lona a rayas y grúa).</sub></p>
 
-<p align="center"><img src="docs/img/puertas.jpg" width="80%"><br><sub>Puerta de troncos en una empalizada (cerrada) y torreón con puerta en la muralla, abierta porque pasa un soldado propio.</sub></p>
+<p align="center"><img src="docs/img/puertas.jpg" width="80%"><br><sub>Una Fortaleza L1 rodeada de Muralla Glaciar, con Torres Validadoras en las esquinas. A la izquierda, el torreón con la puerta de la muralla; a la derecha, una empalizada exterior con su puerta de troncos.</sub></p>
 
 <p align="center"><img src="docs/img/parcela.jpg" width="80%"><br><sub>Las granjas llenan su terreno de 3×3 casillas y se construyen pegadas, como las casas: varias forman una parcela continua junto al molino. Al agotarse se resiembran solas por 60 🪵.</sub></p>
+
+<p align="center"><img src="docs/img/granjas-eras.jpg" width="100%"><br><sub>Las granjas por era: madera y espantapájaros (I–II), piedra y heno (III–IV), cerca metálica, riego y tanque (V–VI), y neón con drones (VII). Cada una siembra trigo, maíz o calabazas al azar y puede cambiar al resembrarse.</sub></p>
 
 <p align="center"><img src="docs/img/casas-chapters.jpg" width="80%"><br><sub>Refugios Alpinos con los colores de los chapters de Team1 (Global, Africa, Brazil, India, Korea, LatAm, Thailand, Turkiye, United States, Vietnam). La franja al pie del muro indica el dueño.</sub></p>
 
@@ -254,7 +261,12 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
 
 ## Cómo se juega
 
-- **Recursos:** comida (bayas, ovejas, vacas, ciervos, jabalíes, granjas), madera, oro y piedra. Mapas con mucho bosque y minas repartidas para expandirse.
+- **Mapas:** 7 tipos (Tierra firme, Ríos, Islas, Costa, Desierto, Montañas y Nieve) de **108 × 108 casillas**. Son simétricos y todo lo que rodea a cada base está en espejo, así que ningún jugador tiene ventaja.
+- **Recursos:** comida (bayas, ovejas, vacas, ciervos, jabalíes, granjas), madera, oro y piedra. Mapas con mucho bosque y vetas repartidas para expandirse.
+- **Oro y piedra en vetas** (como en AoE2): piezas pegadas que pueden minar varios aldeanos a la vez. Junto a cada base hay **dos vetas de oro** (3.600) y **una de piedra** (1.400); cuando se acaba una pieza, el aldeano pasa a la de al lado.
+
+  <p align="center"><img src="docs/img/vetas.jpg" width="90%"><br><sub>Aldeanos trabajando una veta de oro (izquierda) y una de piedra (derecha) junto al centro urbano.</sub></p>
+
 - **Fauna:**
   - ganado: ovejas y vacas;
   - ciervos;
@@ -271,7 +283,8 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
   - peces en mares, lagos y ríos (ver *Agua y barcos*).
 - **Granjas:**
   - ocupan 3×3 casillas y se construyen pegadas, formando una parcela;
-  - al agotarse se resiembran solas por 60 🪵.
+  - al agotarse se resiembran solas por 60 🪵;
+  - siembran trigo, maíz o calabazas, y su aspecto cambia con la era.
 - **Movimiento:** los aldeanos caminan entre los árboles, cruzan sus propios edificios, se reparten alrededor de cada recurso y no se traban.
 - **Unidades atascadas:** si una unidad lleva 2 segundos intentando caminar sin avanzar, se destraba sola. Si quedó parada dentro de algo que no puede pisar (una torre o muralla que se construyó encima, un árbol, un edificio enemigo), sale a la casilla libre más cercana; si está encajonada, recalcula la ruta colándose entre los árboles. Si quedó encerrada en un hueco de pocas casillas por edificios y árboles, salta a la casilla libre de al lado. Los cercos grandes hechos a propósito con murallas siguen funcionando.
 - **Murallas y puertas:**
@@ -298,7 +311,9 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
   - con un cuerno cuando te atacan;
   - con una fanfarria al cambiar de era;
   - cuando se derrumba un edificio.
-- **Selección:** clic en cualquier parte del cuerpo de una unidad (no solo la cabeza). Un clic con temblor del trackpad sigue contando como clic, y el recuadro selecciona una unidad con solo tocarle el cuerpo.
+- **Selección:** el clic va a la unidad cuyo dibujo está bajo la punta del cursor, en cualquier parte del cuerpo. Un clic con temblor del trackpad sigue contando como clic, y el recuadro selecciona una unidad con solo tocarle el cuerpo.
+- **Varios edificios a la vez:** con varios edificios iguales seleccionados (por ejemplo, tres cuarteles), cada clic en una unidad la entrena en uno distinto.
+- **Comercio desde el punto de reunión:** si el punto de reunión del Mercado está en el Gran Bazar, o el de un muelle está en otro muelle tuyo, las carretas y los barcos mercantes salen comerciando solos.
 - **Mercado en la partida:** como en AoE2, el Mercado cambia recursos por oro al instante, sin wallet ni transacciones. Vendes 100 de comida, madera o piedra y recibes oro; con ese oro compras 100 del recurso que te falte. La comisión es del 30% y los precios se comparten con el rival: cada compra sube el precio 3 y cada venta lo baja 3. GLORY se gana con victorias y se gasta en la Bóveda.
 - **Cómo comerciar:** hay tres formas.
   - **Comprar y vender:** selecciona tu **Mercado DeFi**. La fila de en medio compra 100 de un recurso con oro y la de abajo vende 100 por oro.
@@ -310,6 +325,10 @@ En el centro de cada mapa hay una plaza de comercio **neutral**: no es de nadie,
 <p align="center"><img src="docs/img/fauna.jpg" width="70%"><br><sub>Fauna: oveja, vaca, ciervo, jabalí y lobo.</sub></p>
 
 <p align="center"><img src="docs/img/lobby.jpg" width="80%"><br><sub>Lobby: mapa, civilización, ejército tokenizado, contra la IA o 1 vs 1 con código de sala.</sub></p>
+
+**Dificultad de la IA:** en el lobby eliges **Fácil, Normal, Difícil o Experto**. La dificultad cambia cuánto recolecta la IA, qué tan rápido avanza de era, el tamaño de su ejército y cada cuánto ataca (Experto sale a atacar a los 2:00 y Fácil espera 5 minutos; con el mapa grande, la oleada tarda cerca de un minuto en llegar). Las oleadas van contra tu edificio más cercano. **Fácil es de práctica y no da GLORY**; desde Normal, cada victoria verificada cobra. El juego recuerda tu elección.
+
+<p align="center"><img src="docs/img/dificultad.jpg" width="60%"><br><sub>El selector de dificultad del lobby.</sub></p>
 
 **Cómo jugar un 1 vs 1:** JUGAR → pestaña **1 vs 1** → **Crear sala**. Cada sala tiene su propio código de 5 letras; compártelo o pulsa **Copiar enlace**. Tu rival abre el enlace (o escribe el código) y pulsa **Unirse**, y la partida empieza en las dos pantallas. Si pruebas con dos pestañas del mismo navegador, comparten la wallet: la segunda entra como invitada y esa partida no paga GLORY. Más detalles en [docs/MULTIJUGADOR.md](docs/MULTIJUGADOR.md).
 
@@ -367,7 +386,7 @@ Todo el suministro se acuña al desplegar. Después **nadie conserva permiso de 
 - El GLORY pagado por recursos queda en los pools.
 
 **Antifarming:**
-- Recompensa base de 10 GLORY contra la IA y 50 en 1 vs 1.
+- Recompensa base de 10 GLORY contra la IA (desde Normal: las partidas en Fácil no pagan) y 50 en 1 vs 1.
 - Tope de 200 GLORY al día por jugador.
 - Rendimientos decrecientes (100% · 50% · 25% · 0).
 - Una recompensa al día por pareja de rivales.
@@ -407,11 +426,10 @@ En desarrollo, sin fecha comprometida:
 **Nuevos edificios**
 - **Conversión y reliquias:** que el Sabio Snowman convierta unidades enemigas; reliquias NFT que generan oro.
 - **Torre ICM:** portales Teleporter que mueven unidades entre dos torres propias.
-- **Data Center de Validadores:** produce oro pasivo en la era digital.
+- **Data Center de Validadores:** produce oro pasivo en la Era Futurista.
 
-**Nuevas eras**
-- **VII · Era Digital:** drones, hackers que sabotean edificios y data centers.
-- **VIII · Era Interchain:** mapas conectados por ICM y batallas entre comunidades (chapter contra chapter).
+**Nueva era**
+- **VIII · Era Interchain:** mapas conectados por ICM, drones y hackers que sabotean edificios, y batallas entre comunidades (chapter contra chapter).
 
 **Nuevas civilizaciones:** una por chapter de Team1 (LatAm, Brasil, India, Korea, Africa…), con nombres, colores y casas propias.
 
@@ -429,11 +447,11 @@ En desarrollo, sin fecha comprometida:
 |---|---|
 | [docs/ECONOMIA.md](docs/ECONOMIA.md) | Funcionamiento on-chain: qué va a la cadena, recorrido del jugador, tokenomics y antifarming |
 | [docs/MULTIJUGADOR.md](docs/MULTIJUGADOR.md) | 1 vs 1 por salas: lockstep determinista, resultado certificado y recompensas |
-| [docs/JUEGO.md](docs/JUEGO.md) | Mecánicas, eras, civilizaciones, punto de reunión, sumideros, indicaciones visuales y rendimiento |
-| [docs/L1.md](docs/L1.md) | La Age L1: parámetros, precompilados, génesis, Fuji y publicación |
+| [docs/JUEGO.md](docs/JUEGO.md) | Mecánicas, eras, qué fabrica y qué mejora cada edificio, dificultad de la IA, granjas, civilizaciones, punto de reunión, sumideros y rendimiento |
+| [docs/L1.md](docs/L1.md) | La Age L1: parámetros, precompilados, génesis, Fuji, publicación y mudanza a Linux |
 | [docs/CONTRATOS.md](docs/CONTRATOS.md) | Los contratos: roles, flujos y despliegue |
 | [docs/POOLS.md](docs/POOLS.md) | AMM de recursos: liquidez, precios, fórmulas y límites |
-| Whitepaper [ES](docs/Age_of_Avax_Whitepaper_v1.2_ES.pdf) · [EN](docs/Age_of_Avax_Whitepaper_v1.2_EN.pdf) | Visión, juego, arquitectura, tokenomics y modelo de negocio |
+| Whitepaper v1.3 [ES](docs/Age_of_Avax_Whitepaper_v1.3_ES.pdf) · [EN](docs/Age_of_Avax_Whitepaper_v1.3_EN.pdf) | Visión, juego, arquitectura, tokenomics y modelo de negocio |
 
 ## Código fuente
 
