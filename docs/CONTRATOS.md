@@ -52,7 +52,7 @@ Moneda de la economía, con **suministro fijo de 100 M** (`ERC20Capped`). No es 
 | `dailyBudget(day)` | Presupuesto global del día: 54.794 GLORY el primer año, la mitad cada 365 días |
 | `factorBps(n)` | Rendimientos decrecientes: recompensas 1–3 del día 100%, 4–6 50%, 7–10 25%, después 0 |
 
-Tope por jugador: 200 GLORY al día. Si el presupuesto del día se agota, la victoria se registra igual pero paga 0.
+Tope por jugador: 2.000 GLORY al día. Si el presupuesto del día se agota, la victoria se registra igual pero paga 0.
 
 ## TeamVesting — 15 M GLORY del equipo
 
@@ -121,8 +121,8 @@ Protecciones: `SelfMatch` (ganador = perdedor) y, en 1vs1, una sola recompensa a
 | Parámetro (despliegue) | Valor |
 |---|---|
 | Ventana de disputa | `DISPUTE_WINDOW` (600 s por defecto, 120 s en Fuji) |
-| Recompensa base PvP | 50 GLORY |
-| Recompensa base contra IA | 10 GLORY |
+| Recompensa base PvP | 1.000 GLORY |
+| Recompensa base contra IA | 500 GLORY |
 
 ## MatchVault — puente entre la partida y la economía
 
@@ -131,7 +131,7 @@ Protecciones: `SelfMatch` (ganador = perdedor) y, en 1vs1, una sola recompensa a
 | Abrir | `open(seed, map, civ, ids, amounts)` | Exige poseer el NFT de la civilización y **quema** hasta 3 NFT de ejército/planos. `sessionId = keccak256(player, seed)`. |
 | Comprar | `buyResource(id, res, amount, maxGloryIn)` | El jugador paga GLORY, el AMM entrega el recurso, la bóveda lo quema y el recurso entra a la partida al instante. |
 | Vender | `sellResource(id, res, amount)` | Registra la venta. Se paga al liquidar. |
-| Liquidar | `settle(settlement, sig, sellAll)` | Con la firma EIP-712 del verificador (dominio `AgeMatchVault` v1) acuña lo vendido más lo sobrante. Con `sellAll` lo vende todo en el AMM por GLORY en la misma transacción. |
+| Liquidar | `settle(settlement, sig, sellAll)` | Con la firma EIP-712 del verificador (dominio `AgeMatchVault` v1) acuña lo vendido más lo sobrante (el verificador firma sobrante 0 si la partida no es una victoria que cobra recompensa). Con `sellAll` lo vende todo en el AMM por GLORY en la misma transacción. |
 
 Protecciones:
 - lo vendido no puede superar lo registrado (`SoldMismatch`);
@@ -159,6 +159,13 @@ cast send $REPORTER --value 10ether --rpc-url $AGE_RPC_URL --private-key $DEPLOY
 El script escribe las direcciones en `game/src/chain/deployment.json`, que es lo que lee el cliente. Después de cambiar un contrato, regenera las ABI del juego con `python3 contracts/script/gen-abis.py`.
 
 Variables opcionales del despliegue: `TREASURY`, `TEAM`, `COMMUNITY`, `RESERVE` (por defecto, el deployer) y `DISPUTE_WINDOW`.
+
+**Economía v2 en un despliegue existente** (500 GLORY contra la IA, 1.000 en 1vs1, tope de 2.000 por jugador y precios de la Bóveda ×10, sin redesplegar). Ejecútalo una sola vez: cada corrida vuelve a multiplicar los precios por 10.
+
+```bash
+REGISTRY=<registry de deployment.json> ITEMS=<items de deployment.json> \
+  forge script script/Economia.s.sol --rpc-url $AGE_RPC_URL --private-key $DEPLOYER_PK --broadcast
+```
 
 ## Antes de producción
 

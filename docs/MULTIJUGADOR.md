@@ -39,7 +39,7 @@ Código: `src/net/protocol.ts` (protocolo compartido), `src/net/lockstep.ts` (cl
 
 - El servidor guarda el log completo de la sala y al final **re-simula** para certificar al ganador; no confía en lo que diga ningún cliente.
 - **Abandonar** (cerrar la pestaña, "Rendirse" o 15 s sin mandar turnos) da la victoria al rival.
-- **Recompensa** (50 GLORY base) solo si se cumplen todas estas condiciones:
+- **Recompensa** (1.000 GLORY base) solo si se cumplen todas estas condiciones:
   - las dos wallets están conectadas y probadas con firma;
   - la partida duró al menos 4 minutos;
   - no avanzó más rápido que el tiempo real;

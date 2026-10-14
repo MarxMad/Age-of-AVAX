@@ -59,8 +59,19 @@ Dueño de activos: civilizaciones NFT, ejército y planos, Mercado con swaps rea
 ### Emisión de recompensas
 
 - **Presupuesto global:** 54.794 GLORY/día el primer año (≈20 M), la mitad el segundo, y así. La suma converge a los 40 M del fondo.
-- **Recompensa base:** 10 GLORY por victoria contra la IA y 50 por victoria 1vs1.
-- **Tope por jugador:** 200 GLORY al día.
+- **Recompensa base:** 500 GLORY por victoria contra la IA y 1.000 por victoria 1vs1 (antes 10 y 50; los precios de la Bóveda subieron ×10 a la vez, así que un ítem cuesta las mismas victorias que antes).
+- **Tope por jugador:** 2.000 GLORY al día.
+- **Capacidad:** con base 500, el presupuesto del primer año paga completas unas 110 victorias al día entre todos. Si se agota, la victoria se registra pero paga 0 hasta el día siguiente; si la actividad crece, se baja la base con `MatchRegistry.setParams`.
+
+### Liquidación de recursos al terminar
+
+| Resultado | Vendido en el Mercado durante la partida | Sobrantes (máx. 500 por recurso) |
+|---|---|---|
+| Victoria que cobra recompensa (semilla del servidor, Normal o más, 5 min) | Se liquida | Se liquidan |
+| Victoria en Fácil o sin servidor | Se liquida | Se pierden |
+| Derrota o rendición | Se liquida | Se pierden |
+
+Lo decide el verificador: firma `leftover = 0` cuando no corresponde, así que no depende del cliente. Antes una derrota liquidaba los sobrantes (~175 GLORY con 500 de cada uno) y pagaba más que ganar (10 GLORY).
 
 ### Sumideros (GLORY que sale de circulación)
 
@@ -80,7 +91,7 @@ La defensa es en capas: la cadena pone **límites duros** y el servidor **filtra
 | Capa | Contrato | Qué frena |
 |---|---|---|
 | Presupuesto global diario con halving | `RewardsPool` | Miles de cuentas falsas: la emisión total por día está acotada |
-| Tope de 200 GLORY por jugador al día | `RewardsPool` | Un jugador (o bot) jugando todo el día |
+| Tope de 2.000 GLORY por jugador al día | `RewardsPool` | Un jugador (o bot) jugando todo el día |
 | Rendimientos decrecientes (100% · 50% · 25% · 0) | `RewardsPool` | Grindear decenas de partidas |
 | Una recompensa al día por pareja de rivales | `MatchRegistry` | Dos cuentas propias jugando entre sí |
 | Prohibido jugar contra uno mismo | `MatchRegistry` | Autopartidas |
@@ -95,6 +106,7 @@ La defensa es en capas: la cadena pone **límites duros** y el servidor **filtra
 | **Tiempo real:** la victoria no se acepta antes de que pase la duración real de la partida | Bots que simulan una partida de 20 minutos en 2 segundos |
 | Duración mínima: 5 min contra la IA, 4 min en 1vs1 | Victorias exprés |
 | Re-simulación completa del replay | Replays alterados o inventados |
+| Sobrantes solo en victorias que cobran recompensa | Perder o rendirse a propósito para vender recursos |
 | Victorias de invitado válidas solo 24 h | Acumular victorias para cobrarlas en masa |
 | 1vs1: wallets probadas con firma; el servidor guarda el log | Jugar a nombre de otra dirección |
 | Límites por IP en gas patrocinado, faucet, salas y RPC | Abuso de los recursos gratuitos |
@@ -105,10 +117,12 @@ Todas las capas se probaron: hay 18 pruebas de contratos (`contracts/test/Reward
 
 | Parámetro | Función | Valor inicial |
 |---|---|---|
-| Presupuesto diario y tope por jugador | `RewardsPool.setParams` | 54.794 / 200 |
-| Ventana de disputa y recompensas PvP / IA | `MatchRegistry.setParams` | 120 s en Fuji / 50 / 10 |
+| Presupuesto diario y tope por jugador | `RewardsPool.setParams` | 54.794 / 2.000 |
+| Ventana de disputa y recompensas PvP / IA | `MatchRegistry.setParams` | 120 s en Fuji / 1.000 / 500 |
 | Recompensas por pareja al día | `MatchRegistry.setMaxPairRewardsPerDay` | 1 |
 | Sobrante máximo y liquidaciones al día | `MatchVault.setParams` | 500 / 5 |
 | Tope global diario de recursos | `MatchVault.setDailyMintCap` | 50.000 |
+
+> Para aplicar la economía v2 (500 / 1.000, tope 2.000 y precios ×10) a un despliegue existente: `contracts/script/Economia.s.sol`.
 
 > En mainnet, los roles de admin deben pasar a un multisig y las claves del verificador a un KMS.

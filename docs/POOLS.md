@@ -50,7 +50,7 @@ Las cifras están en GLORY. El impacto en precio de 1.000 unidades es de ~0,5%: 
 
 1. **Comprar en el Mercado del juego** (botones "+100"): `MatchVault.buyResource` paga GLORY al pool, recibe el token, lo **quema** y suma el recurso a la partida. Con bloques de 1 s se confirma casi al instante.
 2. **Vender en el Mercado del juego** (botones "−100"): el recurso sale de la partida y la venta queda registrada con `sellResource`. Se paga al liquidar.
-3. **Liquidar al terminar:** el verificador re-simula, confirma que esos recursos existían y firma. `settle` acuña lo vendido más lo sobrante (tope de 500 por recurso) y, con `sellAll`, lo vende en el pool por GLORY.
+3. **Liquidar al terminar:** el verificador re-simula, confirma que esos recursos existían y firma. `settle` acuña lo vendido más lo sobrante (tope de 500 por recurso; los sobrantes solo en una victoria que cobra recompensa, ver [ECONOMIA.md](ECONOMIA.md)) y, con `sellAll`, lo vende en el pool por GLORY.
 
 ```
 GLORY ──buyResource──▶ pool ──token──▶ MatchVault ──burn──▶ recurso en la partida
@@ -60,7 +60,7 @@ recurso en la partida ──sellResource──▶ (registro) ──settle + firm
 ## Límites de la bóveda (antifarming)
 
 Las liquidaciones son la única vía por la que recursos ganados en una partida se vuelven GLORY de los pools. Por eso tienen límites duros en `MatchVault`:
-- 500 de sobrante por recurso y por partida;
+- 500 de sobrante por recurso y por partida, y solo en victorias que cobran recompensa (en una derrota se pierden);
 - 5 liquidaciones por jugador al día;
 - un tope **global** de 50.000 unidades por recurso al día entre todas las cuentas;
 - el verificador exige que la partida haya durado en tiempo real lo que dice el replay, contado desde la apertura on-chain de la sesión.

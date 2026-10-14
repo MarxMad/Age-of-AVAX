@@ -8,8 +8,8 @@ Con <b>Team1</b> · juega gratis en el navegador · 7 eras, de la Antigua a la F
 <a href="https://ageofavax.app"><b>▶ Jugar en ageofavax.app</b></a> ·
 <a href="docs/video/Age-of-Avax-promo-2-ES.mp4">Video (ES)</a> ·
 <a href="docs/video/Age-of-Avax-promo-2-EN.mp4">Video (EN)</a> ·
-<a href="docs/Age_of_Avax_Whitepaper_v1.3_ES.pdf">Whitepaper (ES)</a> ·
-<a href="docs/Age_of_Avax_Whitepaper_v1.3_EN.pdf">Whitepaper (EN)</a> ·
+<a href="docs/Age_of_Avax_Whitepaper_v1.4_ES.pdf">Whitepaper (ES)</a> ·
+<a href="docs/Age_of_Avax_Whitepaper_v1.4_EN.pdf">Whitepaper (EN)</a> ·
 <a href="docs/ECONOMIA.md">Economía</a> ·
 <a href="docs/MULTIJUGADOR.md">1 vs 1</a>
 </p>
@@ -386,8 +386,9 @@ Todo el suministro se acuña al desplegar. Después **nadie conserva permiso de 
 - El GLORY pagado por recursos queda en los pools.
 
 **Antifarming:**
-- Recompensa base de 10 GLORY contra la IA (desde Normal: las partidas en Fácil no pagan) y 50 en 1 vs 1.
-- Tope de 200 GLORY al día por jugador.
+- Recompensa base de 500 GLORY contra la IA (desde Normal: las partidas en Fácil no pagan) y 1.000 en 1 vs 1.
+- Tope de 2.000 GLORY al día por jugador.
+- Los recursos sobrantes (hasta 500 de cada uno) solo se venden al ganar; en una derrota solo se liquida lo vendido en el Mercado durante la partida.
 - Rendimientos decrecientes (100% · 50% · 25% · 0).
 - Una recompensa al día por pareja de rivales.
 - Semillas de un solo uso y tiempo real mínimo, verificados por el servidor.
@@ -451,7 +452,7 @@ En desarrollo, sin fecha comprometida:
 | [docs/L1.md](docs/L1.md) | La Age L1: parámetros, precompilados, génesis, Fuji, publicación y mudanza a Linux |
 | [docs/CONTRATOS.md](docs/CONTRATOS.md) | Los contratos: roles, flujos y despliegue |
 | [docs/POOLS.md](docs/POOLS.md) | AMM de recursos: liquidez, precios, fórmulas y límites |
-| Whitepaper v1.3 [ES](docs/Age_of_Avax_Whitepaper_v1.3_ES.pdf) · [EN](docs/Age_of_Avax_Whitepaper_v1.3_EN.pdf) | Visión, juego, arquitectura, tokenomics y modelo de negocio |
+| Whitepaper v1.4 [ES](docs/Age_of_Avax_Whitepaper_v1.4_ES.pdf) · [EN](docs/Age_of_Avax_Whitepaper_v1.4_EN.pdf) | Visión, juego, arquitectura, tokenomics y modelo de negocio |
 
 ## Código fuente
 
